@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Message Sent | Shaikha</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================
+         RESET
+      ===================================================== */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+
+        font-family: "DM Sans", sans-serif;
+
+        color: #211d2b;
+
+        background: #fbf9ff;
+
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* =====================================================
+         VARIABLES
+      ===================================================== */
+
+      :root {
+        --purple: #8b5cf6;
+        --purple-dark: #7042df;
+        --purple-light: #c4b5fd;
+
+        --lavender: #f1edff;
+        --lavender2: #e8ddff;
+
+        --white: #ffffff;
+
+        --text: #211d2b;
+        --muted: #777182;
+
+        --border: rgba(139, 92, 246, 0.13);
+      }
+
+      /* =====================================================
+         PREMIUM BACKGROUND
+      ===================================================== */
+
+      .background {
+        position: fixed;
+
+        inset: 0;
+
+        z-index: -10;
+
+        overflow: hidden;
+
+        background:
+          radial-gradient(
+            ellipse at 50% 0%,
+            #f4efff 0%,
+            #fbf9ff 45%,
+            #f8f5ff 100%
+          );
+      }
+
+      /* =====================================================
+         GLOWS
+      ===================================================== */
+
+      .glow {
+        position: absolute;
+
+        border-radius: 50%;
+
+        filter: blur(80px);
+
+        pointer-events: none;
+      }
+
+      .glow1 {
+        width: 520px;
+        height: 520px;
+
+        top: -250px;
+        left: -180px;
+
+        background: radial-gradient(
+          circle,
+          rgba(196, 181, 253, 0.52),
+          rgba(196, 181, 253, 0.1) 60%,
+          transparent 75%
+        );
+
+        animation: backgroundFloat1 12s ease-in-out infinite;
+      }
+
+      .glow2 {
+        width: 500px;
+        height: 500px;
+
+        right: -200px;
+        top: 18%;
+
+        background: radial-gradient(
+          circle,
+          rgba(221, 214, 254, 0.55),
+          rgba(221, 214, 254, 0.12) 60%,
+          transparent 75%
+        );
+
+        animation: backgroundFloat2 15s ease-in-out infinite;
+      }
+
+      .glow3 {
+        width: 480px;
+        height: 480px;
+
+        left: 25%;
+        bottom: -260px;
+
+        background: radial-gradient(
+          circle,
+          rgba(216, 227, 255, 0.48),
+          rgba(216, 227, 255, 0.1) 60%,
+          transparent 75%
+        );
+
+        animation: backgroundFloat3 17s ease-in-out infinite;
+      }
+
+      /* =====================================================
+         LARGE GLASS BUBBLE
+      ===================================================== */
+
+      .background::before {
+        content: "";
+
+        position: absolute;
+
+        width: 340px;
+        height: 340px;
+
+        right: 17%;
+        top: 12%;
+
+        border-radius: 50%;
+
+        background: radial-gradient(
+          circle at 35% 30%,
+          rgba(255, 255, 255, 0.95),
+          rgba(232, 221, 255, 0.32) 48%,
+          rgba(196, 181, 253, 0.1) 70%,
+          transparent 75%
+        );
+
+        filter: blur(2px);
+
+        opacity: 0.8;
+
+        box-shadow:
+          inset 0 0 60px rgba(255, 255, 255, 0.8),
+          0 30px 100px rgba(139, 92, 246, 0.06);
+
+        animation: bubbleFloat 14s ease-in-out infinite;
+      }
+
+      /* =====================================================
+         SMALL GLASS BUBBLE
+      ===================================================== */
+
+      .background::after {
+        content: "";
+
+        position: absolute;
+
+        width: 180px;
+        height: 180px;
+
+        left: 13%;
+        bottom: 15%;
+
+        border-radius: 50%;
+
+        background: radial-gradient(
+          circle at 30% 25%,
+          rgba(255, 255, 255, 0.9),
+          rgba(216, 203, 255, 0.28) 50%,
+          transparent 72%
+        );
+
+        border: 1px solid rgba(255, 255, 255, 0.65);
+
+        box-shadow:
+          inset 0 0 35px rgba(255, 255, 255, 0.8),
+          0 20px 60px rgba(139, 92, 246, 0.07);
+
+        filter: blur(0.5px);
+
+        animation: bubbleFloat2 11s ease-in-out infinite;
+      }
+
+      /* =====================================================
+         GRID
+      ===================================================== */
+
+      .grid-bg {
+        position: absolute;
+
+        inset: -10%;
+
+        background-image:
+          linear-gradient(
+            115deg,
+            transparent 0%,
+            transparent 47%,
+            rgba(139, 92, 246, 0.035) 48%,
+            transparent 49%
+          ),
+          linear-gradient(
+            65deg,
+            transparent 0%,
+            transparent 47%,
+            rgba(139, 92, 246, 0.025) 48%,
+            transparent 49%
+          );
+
+        background-size:
+          180px 180px,
+          220px 220px;
+
+        opacity: 0.5;
+
+        mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          black 20%,
+          black 80%,
+          transparent
+        );
+
+        transform: rotate(-5deg);
+      }
+
+      /* =====================================================
+         ANIMATIONS
+      ===================================================== */
+
+      @keyframes backgroundFloat1 {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+
+        50% {
+          transform: translate3d(70px, 45px, 0) scale(1.08);
+        }
+      }
+
+      @keyframes backgroundFloat2 {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+
+        50% {
+          transform: translate3d(-55px, 50px, 0) scale(1.1);
+        }
+      }
+
+      @keyframes backgroundFloat3 {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+
+        50% {
+          transform: translate3d(35px, -45px, 0) scale(1.08);
+        }
+      }
+
+      @keyframes bubbleFloat {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+
+        50% {
+          transform: translate(-35px, 30px);
+        }
+      }
+
+      @keyframes bubbleFloat2 {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+
+        50% {
+          transform: translate(30px, -25px);
+        }
+      }
+
+      @keyframes cardFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-7px);
+        }
+      }
+
+      @keyframes checkPop {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+
+        70% {
+          transform: scale(1.08);
+        }
+
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes ringPulse {
+        0% {
+          transform: scale(0.9);
+          opacity: 0.7;
+        }
+
+        100% {
+          transform: scale(1.25);
+          opacity: 0;
+        }
+      }
+
+      /* =====================================================
+         NAVBAR
+      ===================================================== */
+
+      header {
+        position: fixed;
+
+        top: 18px;
+        left: 0;
+
+        width: 100%;
+
+        z-index: 999;
+      }
+
+      .navbar {
+        width: min(1150px, 92%);
+
+        height: 68px;
+
+        margin: auto;
+
+        padding: 0 18px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        border: 1px solid rgba(255, 255, 255, 0.8);
+
+        background: rgba(255, 255, 255, 0.68);
+
+        backdrop-filter: blur(20px);
+
+        border-radius: 22px;
+
+        box-shadow:
+          0 15px 45px rgba(80, 60, 130, 0.1);
+      }
+
+      .logo {
+        display: flex;
+
+        align-items: center;
+
+        gap: 9px;
+
+        font-size: 21px;
+
+        font-weight: 700;
+      }
+
+      .logo-circle {
+        width: 37px;
+        height: 37px;
+
+        display: grid;
+
+        place-items: center;
+
+        color: white;
+
+        background:
+          linear-gradient(
+            135deg,
+            #a78bfa,
+            #7c3aed
+          );
+
+        border-radius: 12px;
+
+        box-shadow:
+          0 8px 20px rgba(124, 58, 237, 0.25);
+      }
+
+      .logo span {
+        color: var(--purple);
+      }
+
+      .back-link {
+        padding: 11px 17px;
+
+        color: white;
+
+        background: #211d2b;
+
+        border-radius: 12px;
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+        transition: 0.3s;
+      }
+
+      .back-link:hover {
+        background: var(--purple);
+
+        transform: translateY(-2px);
+      }
+
+      /* =====================================================
+         MAIN
+      ===================================================== */
+
+      .success-page {
+        min-height: 100vh;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 130px 20px 70px;
+      }
+
+      .success-wrapper {
+        width: min(850px, 100%);
+
+        position: relative;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+      }
+
+      /* Decorative floating cards */
+
+      .mini-card {
+        position: absolute;
+
+        padding: 13px 17px;
+
+        border-radius: 15px;
+
+        background: rgba(255, 255, 255, 0.72);
+
+        border: 1px solid rgba(255, 255, 255, 0.9);
+
+        backdrop-filter: blur(15px);
+
+        box-shadow:
+          0 18px 50px rgba(80, 55, 130, 0.1);
+
+        font-size: 12px;
+
+        font-weight: 700;
+
+        color: #7042df;
+      }
+
+      .mini-one {
+        left: 0;
+
+        top: 18%;
+
+        transform: rotate(-7deg);
+
+        animation: cardFloat 5s ease-in-out infinite;
+      }
+
+      .mini-two {
+        right: 0;
+
+        bottom: 20%;
+
+        transform: rotate(6deg);
+
+        animation: cardFloat 6s ease-in-out infinite 0.7s;
+      }
+
+      /* =====================================================
+         SUCCESS CARD
+      ===================================================== */
+
+      .success-card {
+        width: min(680px, 100%);
+
+        padding: 58px 55px;
+
+        text-align: center;
+
+        position: relative;
+
+        background: rgba(255, 255, 255, 0.68);
+
+        border: 1px solid rgba(255, 255, 255, 0.9);
+
+        border-radius: 38px;
+
+        backdrop-filter: blur(25px);
+
+        box-shadow:
+          0 35px 100px rgba(78, 55, 130, 0.16);
+
+        animation: cardFloat 6s ease-in-out infinite;
+      }
+
+      .success-card::before {
+        content: "";
+
+        position: absolute;
+
+        width: 240px;
+        height: 240px;
+
+        top: -120px;
+        right: -100px;
+
+        border-radius: 50%;
+
+        background: #ddd1ff;
+
+        filter: blur(35px);
+
+        opacity: 0.5;
+
+        pointer-events: none;
+      }
+
+      .success-card::after {
+        content: "";
+
+        position: absolute;
+
+        width: 180px;
+        height: 180px;
+
+        bottom: -100px;
+        left: -90px;
+
+        border-radius: 50%;
+
+        background: #d9e5ff;
+
+        filter: blur(35px);
+
+        opacity: 0.45;
+
+        pointer-events: none;
+      }
+
+      .card-content {
+        position: relative;
+
+        z-index: 2;
+      }
+
+      /* =====================================================
+         CHECK ICON
+      ===================================================== */
+
+      .check-wrapper {
+        width: 108px;
+        height: 108px;
+
+        margin: 0 auto 28px;
+
+        position: relative;
+
+        display: grid;
+
+        place-items: center;
+      }
+
+      .check-wrapper::before {
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        border-radius: 50%;
+
+        border: 1px solid rgba(139, 92, 246, 0.3);
+
+        animation: ringPulse 2s ease-out infinite;
+      }
+
+      .check-circle {
+        width: 88px;
+        height: 88px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 50%;
+
+        color: white;
+
+        font-size: 40px;
+
+        font-weight: 600;
+
+        background:
+          linear-gradient(
+            135deg,
+            #a78bfa,
+            #7042df
+          );
+
+        box-shadow:
+          0 18px 40px rgba(112, 66, 223, 0.25);
+
+        animation: checkPop 0.7s ease forwards;
+      }
+
+      /* =====================================================
+         TEXT
+      ===================================================== */
+
+      .eyebrow {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        padding: 8px 13px;
+
+        margin-bottom: 17px;
+
+        border-radius: 50px;
+
+        background: var(--lavender);
+
+        color: var(--purple);
+
+        font-size: 12px;
+
+        font-weight: 700;
+      }
+
+      .eyebrow::before {
+        content: "";
+
+        width: 6px;
+        height: 6px;
+
+        border-radius: 50%;
+
+        background: var(--purple);
+      }
+
+      .success-card h1 {
+        font-size: clamp(52px, 8vw, 82px);
+
+        line-height: 0.95;
+
+        letter-spacing: -4px;
+
+        margin-bottom: 20px;
+
+        color: #211d2b;
+      }
+
+      .success-card h1 span {
+        display: block;
+
+        color: var(--purple);
+
+        font-family: "Playfair Display", serif;
+
+        font-style: italic;
+
+        font-weight: 600;
+
+        letter-spacing: -2px;
+      }
+
+      .success-message {
+        max-width: 500px;
+
+        margin: 0 auto;
+
+        color: var(--muted);
+
+        font-size: 16px;
+
+        line-height: 1.8;
+      }
+
+      /* =====================================================
+         INFO
+      ===================================================== */
+
+      .success-info {
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        margin-top: 28px;
+      }
+
+      .info-pill {
+        padding: 9px 13px;
+
+        border-radius: 50px;
+
+        background: rgba(241, 237, 255, 0.8);
+
+        border: 1px solid rgba(139, 92, 246, 0.1);
+
+        color: #6f6480;
+
+        font-size: 11px;
+
+        font-weight: 600;
+      }
+
+      /* =====================================================
+         BUTTONS
+      ===================================================== */
+
+      .success-buttons {
+        display: flex;
+
+        justify-content: center;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+
+        margin-top: 34px;
+      }
+
+      .primary-btn {
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 9px;
+
+        padding: 14px 21px;
+
+        color: white;
+
+        background:
+          linear-gradient(
+            135deg,
+            #9a72ff,
+            #7042df
+          );
+
+        border-radius: 14px;
+
+        font-size: 14px;
+
+        font-weight: 700;
+
+        box-shadow:
+          0 15px 35px rgba(124, 58, 237, 0.23);
+
+        transition: 0.3s;
+      }
+
+      .primary-btn:hover {
+        transform: translateY(-4px);
+
+        box-shadow:
+          0 20px 45px rgba(124, 58, 237, 0.3);
+      }
+
+      .secondary-btn {
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 14px 20px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+
+        border-radius: 14px;
+
+        font-size: 14px;
+
+        font-weight: 700;
+
+        transition: 0.3s;
+      }
+
+      .secondary-btn:hover {
+        transform: translateY(-4px);
+
+        border-color: #c8b7f7;
+
+        box-shadow:
+          0 15px 35px rgba(80, 55, 130, 0.08);
+      }
+
+      /* =====================================================
+         FOOTER
+      ===================================================== */
+
+      .footer {
+        text-align: center;
+
+        color: #8a8394;
+
+        font-size: 12px;
+
+        padding-top: 28px;
+      }
+
+      .footer strong {
+        color: var(--purple);
+      }
+
+      /* =====================================================
+         RESPONSIVE
+      ===================================================== */
+
+      @media (max-width: 700px) {
+
+        header {
+          top: 12px;
+        }
+
+        .navbar {
+          height: 62px;
+
+          border-radius: 18px;
+        }
+
+        .back-link {
+          padding: 10px 13px;
+
+          font-size: 12px;
+        }
+
+        .success-page {
+          padding-top: 105px;
+
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+        .success-card {
+          padding: 45px 25px;
+
+          border-radius: 30px;
+        }
+
+        .success-card h1 {
+          font-size: 53px;
+
+          letter-spacing: -3px;
+        }
+
+        .success-message {
+          font-size: 14px;
+
+          line-height: 1.7;
+        }
+
+        .mini-card {
+          display: none;
+        }
+
+        .check-wrapper {
+          width: 94px;
+          height: 94px;
+        }
+
+        .check-circle {
+          width: 78px;
+          height: 78px;
+
+          font-size: 34px;
+        }
+
+        .success-buttons {
+          flex-direction: column;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 420px) {
+
+        .logo {
+          font-size: 18px;
+        }
+
+        .logo-circle {
+          width: 34px;
+          height: 34px;
+        }
+
+        .success-card {
+          padding: 38px 20px;
+        }
+
+        .success-card h1 {
+          font-size: 46px;
+        }
+
+        .success-message {
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- =====================================================
+         BACKGROUND
+    ===================================================== -->
+
+    <div class="background">
+
+      <div class="glow glow1"></div>
+
+      <div class="glow glow2"></div>
+
+      <div class="glow glow3"></div>
+
+      <div class="grid-bg"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
+
+    <header>
+
+      <nav class="navbar">
+
+        <a href="index.html" class="logo">
+
+          <div class="logo-circle">
+            S
+          </div>
+
+          <span>
+            Shaikha
+          </span>
+
+        </a>
+
+        <a href="index.html" class="back-link">
+          Back to Portfolio
+        </a>
+
+      </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         SUCCESS PAGE
+    ===================================================== -->
+
+    <main class="success-page">
+
+      <div class="success-wrapper">
+
+        <!-- FLOATING DECORATION -->
+
+        <div class="mini-card mini-one">
+          ✓ Delivered
+        </div>
+
+        <div class="mini-card mini-two">
+          ✦ Thank you!
+        </div>
+
+
+        <!-- SUCCESS CARD -->
+
+        <div class="success-card">
+
+          <div class="card-content">
+
+            <!-- CHECK -->
+
+            <div class="check-wrapper">
+
+              <div class="check-circle">
+                ✓
+              </div>
+
+            </div>
+
+
+            <!-- LABEL -->
+
+            <div class="eyebrow">
+              Message Delivered
+            </div>
+
+
+            <!-- TITLE -->
+
+            <h1>
+              Message
+              <span>Sent.</span>
+            </h1>
+
+
+            <!-- MESSAGE -->
+
+            <p class="success-message">
+              Thank you for reaching out! Your message has been
+              successfully delivered. I'll get back to you as soon
+              as possible.
+            </p>
+
+
+            <!-- INFO -->
+
+            <div class="success-info">
+
+              <div class="info-pill">
+                ✓ Successfully submitted
+              </div>
+
+              <div class="info-pill">
+                ✦ Shaikha Portfolio
+              </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="success-buttons">
+
+              <a
+                href="index.html"
+                class="primary-btn"
+              >
+                ← Back to Portfolio
+              </a>
+
+              <a
+                href="index.html#contact"
+                class="secondary-btn"
+              >
+                Send Another Message
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <div class="footer">
+
+      Designed & built by
+      <strong>Shaikha</strong>
+      · 2026
+
+    </div>
+
+  </body>
+</html>
