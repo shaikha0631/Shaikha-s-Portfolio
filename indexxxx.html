@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,10 +16,6 @@
     />
 
     <style>
-      /* =====================================================
-       RESET
-    ===================================================== */
-
       * {
         margin: 0;
         padding: 0;
@@ -47,10 +44,6 @@
         font-family: inherit;
       }
 
-      /* =====================================================
-       VARIABLES
-    ===================================================== */
-
       :root {
         --purple: #8b5cf6;
         --purple-dark: #7042df;
@@ -69,9 +62,9 @@
         --shadow: 0 30px 80px rgba(91, 65, 145, 0.13);
       }
 
-      /* =====================================================
-       BACKGROUND
-    ===================================================== */
+      /* =========================
+         BACKGROUND
+      ========================= */
 
       .background {
         position: fixed;
@@ -298,9 +291,9 @@
         }
       }
 
-      /* =====================================================
-       NAVBAR
-    ===================================================== */
+      /* =========================
+         NAVBAR
+      ========================= */
 
       header {
         position: fixed;
@@ -417,9 +410,9 @@
         cursor: pointer;
       }
 
-      /* =====================================================
-       GENERAL
-    ===================================================== */
+      /* =========================
+         GENERAL
+      ========================= */
 
       .container {
         width: min(1150px, 92%);
@@ -478,9 +471,9 @@
         font-size: 16px;
       }
 
-      /* =====================================================
-       HERO
-    ===================================================== */
+      /* =========================
+         HERO
+      ========================= */
 
       .hero {
         min-height: 100vh;
@@ -618,9 +611,9 @@
         border-color: #c8b7f7;
       }
 
-      /* =====================================================
-       HERO CARD
-    ===================================================== */
+      /* =========================
+         HERO CARD
+      ========================= */
 
       .hero-right {
         position: relative;
@@ -757,8 +750,6 @@
         color: #93c5fd;
       }
 
-      /* FLOATING BADGES */
-
       .float-badge {
         position: absolute;
 
@@ -813,9 +804,9 @@
         }
       }
 
-      /* =====================================================
-       ABOUT
-    ===================================================== */
+      /* =========================
+         ABOUT
+      ========================= */
 
       .about-wrapper {
         display: grid;
@@ -938,9 +929,9 @@
         margin-right: 6px;
       }
 
-      /* =====================================================
-       SKILLS
-    ===================================================== */
+      /* =========================
+         SKILLS
+      ========================= */
 
       .skills-grid {
         display: grid;
@@ -1035,8 +1026,6 @@
         margin-bottom: 18px;
       }
 
-      /* SKILL PERCENTAGE */
-
       .skill-progress {
         position: relative;
         z-index: 2;
@@ -1085,18 +1074,20 @@
         width: var(--skill-width);
       }
 
-      /* =====================================================
-       PROJECTS
-    ===================================================== */
+      /* =========================
+         PROJECTS
+      ========================= */
 
       .projects-grid {
         display: grid;
 
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
 
-        gap: 20px;
+        gap: 24px;
 
         margin-top: 45px;
+
+        align-items: stretch;
       }
 
       .project-card {
@@ -1112,6 +1103,10 @@
 
         display: flex;
         flex-direction: column;
+
+        min-width: 0;
+
+        height: 100%;
       }
 
       .project-card:hover {
@@ -1148,6 +1143,10 @@
         background:
           radial-gradient(circle at 30% 70%, #ffd8f0, transparent 40%), #fff2fa;
       }
+
+      /* =========================
+         MOCK WINDOW
+      ========================= */
 
       .mock-window {
         width: 78%;
@@ -1198,6 +1197,31 @@
 
       .mock-line.short {
         width: 55%;
+      }
+
+      /* =========================
+         PROJECT VIDEO
+      ========================= */
+
+      .project-video {
+        width: 92%;
+        height: 175px;
+
+        object-fit: cover;
+
+        display: block;
+
+        border-radius: 14px;
+
+        background: #211d2b;
+
+        box-shadow: 0 20px 45px rgba(70, 50, 120, 0.18);
+
+        transition: 0.35s;
+      }
+
+      .project-card:hover .project-video {
+        transform: scale(1.03);
       }
 
       .project-info {
@@ -1261,12 +1285,13 @@
         font-weight: 700;
       }
 
-      /* VISIT PROJECT BUTTON */
-
       .project-link {
         display: inline-flex;
+
         align-items: center;
+
         justify-content: center;
+
         gap: 7px;
 
         width: 100%;
@@ -1295,9 +1320,9 @@
         box-shadow: 0 12px 25px rgba(124, 58, 237, 0.2);
       }
 
-      /* =====================================================
-       EDUCATION
-    ===================================================== */
+      /* =========================
+         EDUCATION
+      ========================= */
 
       .education {
         display: grid;
@@ -1359,9 +1384,9 @@
         font-size: 13px;
       }
 
-      /* =====================================================
-       CONTACT
-    ===================================================== */
+      /* =========================
+         CONTACT
+      ========================= */
 
       .contact-box {
         margin-top: 50px;
@@ -1489,9 +1514,9 @@
         min-height: 20px;
       }
 
-      /* =====================================================
-       FOOTER
-    ===================================================== */
+      /* =========================
+         FOOTER
+      ========================= */
 
       footer {
         padding: 40px 0;
@@ -1507,9 +1532,9 @@
         color: var(--purple);
       }
 
-      /* =====================================================
-       REVEAL
-    ===================================================== */
+      /* =========================
+         REVEAL
+      ========================= */
 
       .reveal {
         opacity: 0;
@@ -1527,9 +1552,76 @@
         transform: translateY(0);
       }
 
-      /* =====================================================
-       RESPONSIVE
-    ===================================================== */
+      /* =========================
+         CV BUTTON
+      ========================= */
+
+      .about-actions {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+      }
+
+      .cv-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        padding: 14px 24px;
+
+        background: linear-gradient(135deg, #8b5cf6, #6d3fd1);
+
+        color: #ffffff;
+        text-decoration: none;
+
+        border: 1px solid rgba(139, 92, 246, 0.5);
+        border-radius: 12px;
+
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+
+        box-shadow:
+          0 10px 25px rgba(139, 92, 246, 0.2),
+          0 0 0 rgba(139, 92, 246, 0);
+
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          background 0.3s ease;
+      }
+
+      .cv-btn span {
+        font-size: 19px;
+        line-height: 1;
+
+        transition: transform 0.3s ease;
+      }
+
+      .cv-btn:hover {
+        color: #ffffff;
+
+        transform: translateY(-4px);
+
+        background: linear-gradient(135deg, #9d72ff, #7c4ee8);
+
+        box-shadow:
+          0 15px 35px rgba(139, 92, 246, 0.32),
+          0 0 25px rgba(139, 92, 246, 0.12);
+      }
+
+      .cv-btn:hover span {
+        transform: translateY(4px);
+      }
+
+      .cv-btn:active {
+        transform: translateY(-1px);
+      }
+
+      /* =========================
+         RESPONSIVE
+      ========================= */
 
       @media (max-width: 950px) {
         .nav-links {
@@ -1600,9 +1692,14 @@
           min-height: 350px;
         }
 
-        .skills-grid,
-        .projects-grid {
+        .skills-grid {
           grid-template-columns: 1fr 1fr;
+        }
+
+        .projects-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+
+          gap: 18px;
         }
       }
 
@@ -1652,6 +1749,31 @@
           grid-template-columns: 1fr;
         }
 
+        .projects-grid {
+          gap: 18px;
+        }
+
+        .project-preview {
+          height: 205px;
+        }
+
+        .project-video {
+          width: 92%;
+          height: 170px;
+        }
+
+        .project-info {
+          padding: 20px;
+        }
+
+        .project-info h3 {
+          font-size: 20px;
+        }
+
+        .project-info p {
+          font-size: 13px;
+        }
+
         .about-points {
           grid-template-columns: 1fr;
         }
@@ -1674,9 +1796,30 @@
         .field.full {
           grid-column: auto;
         }
+
+        .about-actions {
+          margin-top: 24px;
+        }
+
+        .cv-btn {
+          width: 100%;
+          padding: 14px 20px;
+        }
       }
 
       @media (max-width: 420px) {
+        .project-preview {
+          height: 185px;
+        }
+
+        .project-video {
+          height: 155px;
+        }
+
+        .project-info {
+          padding: 18px;
+        }
+
         .hero h1 {
           font-size: 49px;
         }
@@ -1697,9 +1840,9 @@
   </head>
 
   <body>
-    <!-- =====================================================
-       BACKGROUND
-  ===================================================== -->
+    <!-- =========================
+         BACKGROUND
+    ========================= -->
 
     <div class="background">
       <div class="glow glow1"></div>
@@ -1709,9 +1852,9 @@
       <div class="grid-bg"></div>
     </div>
 
-    <!-- =====================================================
-       NAVBAR
-  ===================================================== -->
+    <!-- =========================
+         NAVBAR
+    ========================= -->
 
     <header>
       <nav class="navbar">
@@ -1735,9 +1878,9 @@
       </nav>
     </header>
 
-    <!-- =====================================================
-       HERO
-  ===================================================== -->
+    <!-- =========================
+         HERO
+    ========================= -->
 
     <section class="hero container" id="home">
       <div class="hero-left reveal">
@@ -1750,7 +1893,7 @@
           Creative
 
           <span class="creative">
-            <span class="name"> Shaikha. </span>
+            <span class="name">Shaikha.</span>
           </span>
         </h1>
 
@@ -1768,8 +1911,6 @@
           <a href="#contact" class="secondary-btn"> Let's Connect </a>
         </div>
       </div>
-
-      <!-- HERO CARD -->
 
       <div class="hero-right reveal">
         <div class="float-badge badge-html">&lt;/&gt; HTML & CSS</div>
@@ -1795,42 +1936,39 @@
 
               <div>
                 &nbsp;&nbsp;name:
-                <span class="code-green"> "Shaikha" </span>,
+                <span class="code-green">"Shaikha"</span>,
               </div>
 
               <div>
                 &nbsp;&nbsp;frontend:
-                <span class="code-blue"> true </span>,
+                <span class="code-blue">true</span>,
               </div>
 
               <div>
                 &nbsp;&nbsp;apps:
-                <span class="code-blue"> true </span>,
+                <span class="code-blue">true</span>,
               </div>
 
               <div>
                 &nbsp;&nbsp;creative:
-                <span class="code-blue"> true </span>,
+                <span class="code-blue">true</span>,
               </div>
 
               <div>
                 &nbsp;&nbsp;coffee:
-                <span class="code-blue"> "probably" </span>
+                <span class="code-blue">"probably"</span>
               </div>
 
               <div>
-                <span class="code-pink"> }; </span>
+                <span class="code-pink">};</span>
               </div>
 
               <br />
 
               <div>
-                <span class="code-purple"> console </span>.
-
-                <span class="code-pink"> log </span>(
-
-                <span class="code-green"> "Let's build!" </span>
-
+                <span class="code-purple">console</span>.
+                <span class="code-pink">log</span>(
+                <span class="code-green">"Let's build!"</span>
                 );
               </div>
             </div>
@@ -1839,9 +1977,9 @@
       </div>
     </section>
 
-    <!-- =====================================================
-       ABOUT
-  ===================================================== -->
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
     <section id="about">
       <div class="container">
@@ -1857,20 +1995,19 @@
 
             <h2 class="section-title">
               A little bit
-
               <span style="color: #8b5cf6"> creative, </span>
-
               a little bit technical.
             </h2>
 
             <p>
-              I'm Shaikha, a creative developer who enjoys bringing ideas to
-              life through websites, mobile applications and visual content.
+              I'm Shaikha, a creative developer with experience in web
+              development, app development and video editing. I enjoy building
+              responsive websites, mobile applications and engaging visual
+              content.
             </p>
-
             <p>
               I love learning new technologies, experimenting with design and
-              creating digital experiences that feel simple, modern and
+              creating digital experiences that are simple, modern and
               enjoyable.
             </p>
 
@@ -1895,14 +2032,25 @@
                 Continuous Learning
               </div>
             </div>
+
+            <div class="about-actions">
+              <a
+                href="Shaikha's CV.pdf"
+                download="Shaikha's CV.pdf"
+                class="cv-btn"
+              >
+                <span>↓</span>
+                Download CV
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- =====================================================
-       SKILLS
-  ===================================================== -->
+    <!-- =========================
+         SKILLS
+    ========================= -->
 
     <section id="skills">
       <div class="container">
@@ -1910,7 +2058,6 @@
 
         <h2 class="section-title reveal">
           Things I love
-
           <span style="color: #8b5cf6"> building with. </span>
         </h2>
 
@@ -1920,8 +2067,6 @@
         </p>
 
         <div class="skills-grid">
-          <!-- HTML -->
-
           <div class="skill-card reveal">
             <div class="skill-icon">&lt;/&gt;</div>
 
@@ -1944,8 +2089,6 @@
             </div>
           </div>
 
-          <!-- JAVASCRIPT -->
-
           <div class="skill-card reveal">
             <div class="skill-icon">JS</div>
 
@@ -1965,8 +2108,6 @@
             </div>
           </div>
 
-          <!-- BOOTSTRAP -->
-
           <div class="skill-card reveal">
             <div class="skill-icon">B</div>
 
@@ -1985,8 +2126,6 @@
               </div>
             </div>
           </div>
-
-          <!-- FLUTTER -->
 
           <div class="skill-card reveal">
             <div class="skill-icon">F</div>
@@ -2009,8 +2148,6 @@
             </div>
           </div>
 
-          <!-- FIREBASE -->
-
           <div class="skill-card reveal">
             <div class="skill-icon">FB</div>
 
@@ -2029,8 +2166,6 @@
               </div>
             </div>
           </div>
-
-          <!-- VIDEO EDITING -->
 
           <div class="skill-card reveal">
             <div class="skill-icon">▶</div>
@@ -2054,9 +2189,9 @@
       </div>
     </section>
 
-    <!-- =====================================================
-       PROJECTS
-  ===================================================== -->
+    <!-- =========================
+         PROJECTS
+    ========================= -->
 
     <section id="projects">
       <div class="container">
@@ -2064,7 +2199,6 @@
 
         <h2 class="section-title reveal">
           A few things
-
           <span style="color: #8b5cf6"> I've created. </span>
         </h2>
 
@@ -2073,7 +2207,9 @@
         </p>
 
         <div class="projects-grid">
-          <!-- PROJECT 1 -->
+          <!-- =========================
+               PROJECT 01
+          ========================= -->
 
           <div class="project-card reveal">
             <div class="project-preview project-one">
@@ -2097,7 +2233,8 @@
               <h3>Lumi Countdown</h3>
 
               <p>
-                A responsive countdown web built with a clean interface, dynamic countdown functionality, and modern web design.
+                A responsive countdown web built with a clean interface, dynamic
+                countdown functionality, and modern web design.
               </p>
 
               <div class="tags">
@@ -2108,10 +2245,8 @@
                 <span class="tag"> JavaScript </span>
               </div>
 
-              <!-- CHANGE THIS URL -->
-
               <a
-                href="lumi-countdown.netlify.app"
+                href="https://shaikha0631.github.io/countdown-timer/"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="project-link"
@@ -2122,56 +2257,60 @@
             </div>
           </div>
 
-          <!-- PROJECT 2 -->
+          <!-- =========================
+               PROJECT 02
+               HORIZONTAL VIDEO
+          ========================= -->
 
           <div class="project-card reveal">
             <div class="project-preview project-two">
-              <div class="mock-window">
-                <div class="mock-top">
-                  <span class="mock-dot"></span>
-                  <span class="mock-dot"></span>
-                  <span class="mock-dot"></span>
-                </div>
+              <!--
+                Put your video file in the same folder
+                and change "project-video.mp4"
+                to your actual video filename.
+              -->
 
-                <div class="mock-line short"></div>
-                <div class="mock-line"></div>
-                <div class="mock-line"></div>
-                <div class="mock-line short"></div>
-              </div>
+              <video
+                class="project-video"
+                controls
+                muted
+                playsinline
+                preload="metadata"
+              >
+                <source src="video2.mp4" type="video/mp4" />
+
+                Your browser does not support the video tag.
+              </video>
             </div>
 
             <div class="project-info">
               <div class="project-number">PROJECT 02</div>
 
-              <h3>LaptopHarbor</h3>
+              <h3>Creative Video</h3>
 
               <p>
-                A modern laptop shopping platform designed for easy browsing and product discovery.
+                A horizontal video project showcasing creative editing, visual
+                storytelling and polished content.
               </p>
 
               <div class="tags">
-                <span class="tag"> Flutter </span>
+                <span class="tag"> Video Editing </span>
 
-                <span class="tag"> Firebase </span>
+                <span class="tag"> Creative </span>
 
-                <span class="tag"> Dart </span>
+                <span class="tag"> Visual Content </span>
               </div>
 
-              <!-- CHANGE THIS URL -->
-
-              <a
-                href="https://laptopharbor2405e.web.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-              >
-                Visit Project
+              <a href="#" class="project-link">
+                View Project
                 <span>↗</span>
               </a>
             </div>
           </div>
 
-          <!-- PROJECT 3 -->
+          <!-- =========================
+               PROJECT 03
+          ========================= -->
 
           <div class="project-card reveal">
             <div class="project-preview project-three">
@@ -2185,36 +2324,29 @@
                 <div class="mock-line"></div>
                 <div class="mock-line short"></div>
                 <div class="mock-line"></div>
-                <div class="mock-line"></div>
+                <div class="mock-line short"></div>
               </div>
             </div>
 
             <div class="project-info">
               <div class="project-number">PROJECT 03</div>
 
-              <h3>Wilson Sports Goods</h3>
+              <h3>Laptop Harbor</h3>
 
               <p>
-                A clean digital project focused on sports products and
-                presentation.
+                A modern laptop shopping platform designed for easy browsing and
+                product discovery.
               </p>
 
               <div class="tags">
-                <span class="tag"> Web </span>
+                <span class="tag"> Flutter </span>
 
-                <span class="tag"> UI </span>
+                <span class="tag"> Dart </span>
 
-                <span class="tag"> Design </span>
+                <span class="tag"> Firebase </span>
               </div>
 
-              <!-- CHANGE THIS URL -->
-
-              <a
-                href="https://your-wilson-project-link.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-              >
+              <a href="#" class="project-link">
                 Visit Project
                 <span>↗</span>
               </a>
@@ -2223,68 +2355,70 @@
         </div>
       </div>
     </section>
-
-    <!-- =====================================================
-       EDUCATION
-  ===================================================== -->
+    <!-- =========================
+     EDUCATION
+========================= -->
 
     <section id="education">
       <div class="container">
         <div class="education">
-          <div class="reveal">
-            <div class="section-label">Education</div>
+          <div>
+            <div class="section-label reveal">Education</div>
 
-            <h2 class="section-title">
-              Always
-
-              <span style="color: #8b5cf6"> learning. </span>
+            <h2 class="section-title reveal">
+              My learning
+              <span style="color: #8b5cf6"> journey. </span>
             </h2>
 
-            <p class="section-description">
-              My journey is not just about certificates. It's about continuously
-              learning, experimenting and building.
+            <p class="section-description reveal">
+              A continuous journey of learning, experimenting and improving my
+              technical and creative skills.
             </p>
           </div>
 
           <div class="education-list">
+            <!-- SCHOOL -->
+
             <div class="edu-item reveal">
-              <div class="edu-year">2014 - 2024</div>
+              <div class="edu-year">2014 – 2024</div>
 
               <div>
-                <h3>School Education</h3>
+                <h3>Al-Azhar Academy</h3>
 
                 <p>
-                  Al-Azhar Academy <br />
-                  Built a strong academic foundation while developing an
-                  interest in technology.
+                  Completed my school education with a foundation in academics,
+                  technology and creative learning.
                 </p>
               </div>
             </div>
 
+            <!-- COLLEGE -->
+
             <div class="edu-item reveal">
-              <div class="edu-year">2024 - 2026</div>
+              <div class="edu-year">2024 – 2026</div>
 
               <div>
-                <h3>Intermediate</h3>
+                <h3>C.M.S College</h3>
 
                 <p>
-                  CMS College <br />
-                  Intermediate completed, with continued learning in technology
-                  and practical skills. skills.
+                  Completed my Intermediate education after completing my
+                  college studies.
                 </p>
               </div>
             </div>
 
+            <!-- APTECH -->
+
             <div class="edu-item reveal">
-              <div class="edu-year">NOW</div>
+              <div class="edu-year">Ongoing</div>
 
               <div>
-                <h3>Continuous Learning</h3>
+                <h3>Aptech-ACCP AI</h3>
 
                 <p>
-                  Aptech-ACCP AI
-                  <br> Building practical skills in web development,
-                  app creation, and creative editing.
+                  Professional learning in AI, programming, web development,
+                  Flutter, Firebase and modern software technologies.
+                  <b>(ONGOING)</b>
                 </p>
               </div>
             </div>
@@ -2293,56 +2427,42 @@
       </div>
     </section>
 
-    <!-- =====================================================
-       CONTACT
-  ===================================================== -->
+    <!-- =========================
+         CONTACT
+    ========================= -->
 
     <section id="contact">
       <div class="container">
-        <div class="section-label reveal">Get In Touch</div>
+        <div class="section-label reveal">Let's Connect</div>
 
         <h2 class="section-title reveal">
           Have an idea?
-
-          <span style="color: #8b5cf6"> Let's make it real. </span>
+          <span style="color: #8b5cf6"> Let's build it. </span>
         </h2>
+
+        <p class="section-description reveal">
+          Have a project, idea or collaboration in mind? Send me a message and
+          let's create something useful.
+        </p>
 
         <div class="contact-box">
           <div class="contact-left">
-            <h3>Let's create something beautiful.</h3>
+            <h3>Let's make something great together.</h3>
 
             <p>
-              Have a website, app or creative project in mind? Send a message
-              and let's talk about it.
+              Whether it's a website, mobile app or creative project, I'm always
+              interested in learning about new ideas.
             </p>
 
             <div class="contact-decoration">Shaikha.</div>
           </div>
 
           <div class="contact-right">
-            <!-- CONTACT FORM -->
-
             <form id="contactForm">
-              <!-- IMPORTANT:
-                 Replace this with your existing Web3Forms access key.
-            -->
-
               <input
                 type="hidden"
                 name="access_key"
-                value="YOUR_WEB3FORMS_ACCESS_KEY"
-              />
-
-              <input
-                type="hidden"
-                name="subject"
-                value="New Portfolio Message"
-              />
-
-              <input
-                type="hidden"
-                name="from_name"
-                value="Shaikha's Portfolio"
+                value="2d57e0a9-77dd-4272-b57e-068a980ea777"
               />
 
               <div class="form-grid">
@@ -2397,9 +2517,9 @@
       </div>
     </section>
 
-    <!-- =====================================================
-       FOOTER
-  ===================================================== -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <footer>
       <div class="container">
@@ -2411,14 +2531,14 @@
       </div>
     </footer>
 
-    <!-- =====================================================
-       JAVASCRIPT
-  ===================================================== -->
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
     <script>
-      /* =====================================================
-       MOBILE MENU
-    ===================================================== */
+      /* =========================
+         MOBILE MENU
+      ========================= */
 
       const menu = document.getElementById("menu");
 
@@ -2434,9 +2554,9 @@
         }
       });
 
-      /* =====================================================
-       CLOSE MOBILE MENU
-    ===================================================== */
+      /* =========================
+         CLOSE MOBILE MENU
+      ========================= */
 
       document.querySelectorAll(".nav-links a").forEach((link) => {
         link.addEventListener("click", () => {
@@ -2446,9 +2566,9 @@
         });
       });
 
-      /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
+      /* =========================
+         SCROLL REVEAL
+      ========================= */
 
       const observer = new IntersectionObserver(
         (entries) => {
@@ -2458,7 +2578,6 @@
             }
           });
         },
-
         {
           threshold: 0.12,
         },
@@ -2468,10 +2587,10 @@
         observer.observe(element);
       });
 
-      /* =====================================================
-       CONTACT FORM
-       WEB3FORMS + SUCCESS PAGE
-    ===================================================== */
+      /* =========================
+         CONTACT FORM
+         WEB3FORMS
+      ========================= */
 
       const contactForm = document.getElementById("contactForm");
 
@@ -2501,12 +2620,6 @@
           const data = await response.json();
 
           if (data.success) {
-            /*
-            IMPORTANT:
-            success.html must be in the SAME folder
-            as index.html.
-          */
-
             window.location.href = "./success.html";
           } else {
             sendButton.disabled = false;
